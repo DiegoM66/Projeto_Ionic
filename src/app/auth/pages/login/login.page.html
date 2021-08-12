@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--Inserir ícone-->
+<ion-content class="ion-padding">
+  <h1>
+    <ion-icon name="game-controller-outline" color="primary" class="icon-7em"></ion-icon>
+  </h1>
+  <!--Formulário-->
+  <form [formGroup]= "authForm" (submit)="onSubmit()">
+    <!--Inserir email-->
+  <ion-item>
+    <ion-icon name="mail-outline" color="primary" slot="start"></ion-icon>
+    <ion-input type="email" placeholder="E - mail" formControlName="email" imputmode="email" autofocus="true"></ion-input>
+  </ion-item>
+  <!--Erro email-->
+  <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('requerid')">Required</ion-note>
+  <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('email')">Email Inválido</ion-note>
+  <!--Inserir senha-->
+  <ion-item>
+    <ion-icon name="lock-open-outline" color="primary" slot="start"></ion-icon>
+    <ion-input type="password" placeholder="Digite sua Senha" formControlName="password"></ion-input>
+  </ion-item>
+    <!--Erro senha-->
+    <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('requerid')">Required</ion-note>
+    <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('minlength')">Senha Inválida</ion-note>
+  <!--Crie uma conta-->
+  <ion-button expand="block" type="submit" [disabled]=authForm.invalid>Login</ion-button>
+  </form>
+<ion-button expand="block" fill="clear">Crie uma conta</ion-button>
+<ion-button expand="block">
+  <ion-icon name="logo-facebook"></ion-icon>
+  Login pelo Facebook
+</ion-button>
+</ion-content>
