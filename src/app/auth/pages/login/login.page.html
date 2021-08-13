@@ -16,7 +16,7 @@
     <ion-input type="email" placeholder="E - mail" formControlName="email" imputmode="email" autofocus="true"></ion-input>
   </ion-item>
   <!--Erro email-->
-  <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('requerid')">Required</ion-note>
+  <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('required')">Não aceita em branco</ion-note>
   <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('email')">Email Inválido</ion-note>
   <!--Inserir senha-->
   <ion-item>
@@ -24,7 +24,7 @@
     <ion-input type="password" placeholder="Digite sua Senha" formControlName="password"></ion-input>
   </ion-item>
     <!--Erro senha-->
-    <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('requerid')">Required</ion-note>
+    <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('required')">Coloque um valor</ion-note>
     <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('minlength')">Senha Inválida</ion-note>
   <!--Crie uma conta-->
   <ion-button expand="block" type="submit" [disabled]=authForm.invalid>Login</ion-button>

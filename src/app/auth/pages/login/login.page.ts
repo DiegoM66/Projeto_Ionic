@@ -13,6 +13,9 @@ export class LoginPage implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void{
+    this.createForm();
+  }
+    private createForm(): void{
     this.authForm = this.fb.group({
       email:['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
